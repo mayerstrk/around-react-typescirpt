@@ -1,13 +1,21 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url(./vendor/normalize.css);
+@import url(./vendor/Fonts/fonts.css);
+@import url(./components/Page/Page.css);
+@import url(./components/Header/Header.css);
+@import url(./components/App/App.css);
+@import url(./components/Main/Main.css);
+@import url(./components/Profile/Profile.css);
+@import url(./components/Places/Places.css);
+@import url(./components/Footer/Footer.css);
+@import url(./components/Popup/Popup.css);
+@import url(./components/PopupWithForm/Form.css);
+@import url(./components/Card/Card.css);
+@import url(./components/ImagePopup/ImagePopup.css);
+@import url(./components/DeleteCardPopup/DeleteCardPopup.css);
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
+
+
+/* @import url(./components/app-error/app-error.css);
+@import url(./components/modal/modal.css);
+ */
