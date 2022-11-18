@@ -31,7 +31,7 @@
   background-color: transparent;
   border: none;
   padding: 0;
-  background-image: url(./Card__images/__delete-button.svg);
+  background-image: url(./Card__images/delete-button.svg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -78,7 +78,7 @@
   background-color: transparent;
   border: none;
   padding: 0;
-  background-image: url(./Card__images/__like-button.svg);
+  background-image: url(./Card__images/like-button.svg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -91,7 +91,7 @@
 }
 
 .card__like-button_active {
-  background-image: url(./Card__images/__like-button_active.svg);
+  background-image: url(./Card__images/like-button_active.svg);
 }
 
 .card__likes {
