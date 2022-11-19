@@ -1,4 +1,4 @@
-import addButton from './Profile__images/__add-button.svg'
+import addButton from './Profile__images/add-button.svg'
 
 function Profile({userInfo, onEditProfileClick, onEditAvatarClick, onAddCardClick}) {
   return (

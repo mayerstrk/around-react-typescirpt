@@ -31,7 +31,7 @@
 
 .profile__avatar-container:hover::before {
   background-color: rgba(0, 0, 0, 0.8);
-  background-image: url("./Profile__images/__edit-icon.svg");
+  background-image: url("./Profile__images/edit-icon.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 20px;
@@ -82,7 +82,7 @@
   min-width: 24px;
   margin-bottom: 8px;
   transition: all 0.2s ease-in-out;
-  background: url("./Profile__images/__edit-button.svg");
+  background: url("./Profile__images/edit-button.svg");
   border: none;
   background-size: contain;
   background-color: transparent;
