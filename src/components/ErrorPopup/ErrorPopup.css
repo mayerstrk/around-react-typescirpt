@@ -18,14 +18,13 @@
 .error__text {
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
-  font-weight: 200;
   font-size: 12px;
   width: fit-content;
-  color: #000;
+  color: #111;
 }
 
 .error__see-more {
-  color: #fff;
+  color: #333;
   text-decoration: underline;
 }
 
