@@ -6,6 +6,7 @@ import ImagePopup from "../ImagePopup/ImagePopup";
 import DeleteCardPopup from "../DeleteCardPopup/DeleteCardPopup";
 import EditAvatarPopup from "../EditAvatarPopup/EditAvatarPopup";
 import AddCardPopup from "../AddCardPopup/AddCardPopup";
+import ErrorPopup from "../ErrorPopup/ErrorPopup";
 
 function App() {
   const [userInfo, setUserInfo] = useState({});
@@ -21,14 +22,24 @@ function App() {
 
   const [isAvatarPopupOpen, setIsAvatarPopupOpen] = useState(false);
 
-  const [isAddCardPopupOpen, setIsAddCardPopupOpen] = useState(false)
- 
+  const [isAddCardPopupOpen, setIsAddCardPopupOpen] = useState(false);
+
+  const [isErrorPopupOpen, setIsErrorPopupOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("#");
+
+  const handleApiCatch = (err) => {
+    setErrorMessage(err);
+    setIsErrorPopupOpen(true);
+  };
+
   useEffect(() => {
-    aroundClient.fetchData().then(([userInfo, initialCards]) => {
+    aroundClient
+    .fetchData()
+    .then(([userInfo, initialCards]) => {
       setUserInfo(userInfo);
       setCards(initialCards);
-    });
-    // TODO: onApiCatch
+    })
+    .catch(handleApiCatch)
   }, []);
 
   const onEditProfileClick = () => {
@@ -40,9 +51,8 @@ function App() {
   };
 
   const onAddCardClick = () => {
-    setIsAddCardPopupOpen(true)
-    console.log(isAddCardPopupOpen)
-  }
+    setIsAddCardPopupOpen(true);
+  };
 
   const onClose = (setter) => {
     setter(false);
@@ -65,6 +75,7 @@ function App() {
         setUserInfo(userInfo);
         setIsEditProfilePopupOpen(false);
       })
+      .catch(handleApiCatch)
       .finally(setIsLoading(false));
   };
 
@@ -72,31 +83,31 @@ function App() {
     e.preventDefault();
     setIsLoading(true);
     aroundClient
-      .updateAvatar(avatarUrl )
+      .updateAvatar(avatarUrl)
       .then((userInfo) => {
         setUserInfo(userInfo);
         setIsAvatarPopupOpen(false);
       })
-      //TODO catch
+      .catch(handleApiCatch)
       .finally(() => {
         setIsLoading(false);
       });
   };
-  
+
   const onAddCardSubmit = (e, card) => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     aroundClient
       .postNewCard(card)
       .then((card) => {
-        setCards([...cards, card])
+        setCards([...cards, card]);
       })
-      .finally(() => setIsLoading(false))
+      .catch(handleApiCatch)
+      .finally(() => setIsLoading(false));
+  };
 
-  }
   const onDeleteButtonClick = (card) => {
     setSelectedCard(card);
-    console.log(selectedCard);
     setIsDeleteCardPopupOpen(true);
   };
 
@@ -112,6 +123,7 @@ function App() {
         setCards(newCards);
         onClose(setIsDeleteCardPopupOpen);
       })
+      .catch(handleApiCatch)
       .finally(() => {
         setIsLoading(false);
       });
@@ -151,11 +163,16 @@ function App() {
         onClose={() => onClose(setIsAvatarPopupOpen)}
         onSubmit={onEditAvatarSubmit}
       />
-      <AddCardPopup 
+      <AddCardPopup
         isOpen={isAddCardPopupOpen}
         isLoading={isLoading}
         onClose={() => onClose(setIsAddCardPopupOpen)}
         onSubmit={onAddCardSubmit}
+      />
+      <ErrorPopup 
+        isOpen={isErrorPopupOpen}
+        onClose={() => onClose(setIsErrorPopupOpen)}
+        errorMessage={errorMessage}
       />
     </div>
   );

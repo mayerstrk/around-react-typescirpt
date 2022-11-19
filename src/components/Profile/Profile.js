@@ -1,7 +1,6 @@
 import addButton from './Profile__images/__add-button.svg'
 
 function Profile({userInfo, onEditProfileClick, onEditAvatarClick, onAddCardClick}) {
-  console.log(onAddCardClick)
   return (
     <section className="profile">
       <div className="profile__avatar-container" onClick={onEditAvatarClick}>

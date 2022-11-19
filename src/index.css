@@ -7,15 +7,9 @@
 @import url(./components/Profile/Profile.css);
 @import url(./components/Places/Places.css);
 @import url(./components/Footer/Footer.css);
+@import url(./components/ErrorPopup/ErrorPopup.css);
 @import url(./components/Popup/Popup.css);
 @import url(./components/PopupWithForm/Form.css);
 @import url(./components/Card/Card.css);
 @import url(./components/ImagePopup/ImagePopup.css);
 @import url(./components/DeleteCardPopup/DeleteCardPopup.css);
-
-
-
-
-/* @import url(./components/app-error/app-error.css);
-@import url(./components/modal/modal.css);
- */
